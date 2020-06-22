@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.header-container {
+  display: flex;
+}
+.header-image {
+  width: 50%;
+}
+.bi-book-half {
+  width: 40%;
+  text-align: center;
+  justify-content: center;
+  margin: 1px auto;
+}
+
+.jumbo-head{
+  background-image: linear-gradient(to right, rgb(127,192,182), orange);
+}
+
+.form-div{
+  width: 70%;
+  margin: 1px auto;
+}
+.title{
+  font-family: 'Piedra', cursive;
+}
+.p-title{
+  font-family: 'Dancing Script', cursive;
+  color: azure;
+}
