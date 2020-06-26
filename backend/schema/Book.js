@@ -14,21 +14,19 @@ const BookSchema = new Schema({
       min:3,
       max:20,
       required: true
-  
    },
 
-   SerialNo:{
+   serialNo:{
        type:Number,
        required: true
-    
    },
 
-   PublicationDate:{
-       type:Number
-       
+   publicationDate:{
+       type:Number,
+       default: '00001'
    },
    
-   Saved:{
+   saved:{
        type:Date,
        default: Date.now
    }

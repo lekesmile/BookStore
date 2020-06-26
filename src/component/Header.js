@@ -25,7 +25,7 @@ const Header = () => {
             </svg>
           </div>
           <div>
-            <h1 className="title">BookStore</h1>
+            <h1 className="title"><span className="title-span1">Book</span><span className="title-span2">Store</span></h1>
             <p className="p-title">
               This is a bookstore APP  where you can easily upload your favourites
               books !

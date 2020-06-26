@@ -18,20 +18,34 @@ app.use(cors())
 app.get('/', async (req, res) => {
     try {
      const findBook = await Book.find({})
-     return  res.json({'All books on our database': findBook}).status(200)
+     return  res.json(findBook).status(200)
     } catch (error) {
         return  res.json({'Sorry no data found on our database': error}).status(400)
     }
     
 })
 
+app.get('/:id', async (req, res) => {
+    try {
+     const findBookById = await Book.findById({_id: req.params.id})
+     return  res.json(findBookById).status(200)
+    } catch (error) {
+        return  res.json({'Sorry no data found on our database': error}).status(400)
+    }
+    
+})
+
+
 app.post('/', async (req, res)=>{
+
+  let {author, title, serialNo, sublicationDate} = req.body 
+
      try {
          const firstBook = new Book({
-            author: req.body.author ,
-            title: req.body.title ,
-            SerialNo: req.body.SerialNo,
-            PublicationDate: req.body.PublicationDate
+            author,
+            title ,
+            serialNo,
+            sublicationDate
          })
 
        const savedBook =  await firstBook.save()
@@ -48,7 +62,7 @@ app.delete('/:id', async (req, res)=>{
         
        return  res.json({"Deleted Book is " : findBook}).status(200)
     } catch (error) {
-        return  res.json({'Dababase cannot delete selected Book ': error}).status(400)
+        return  res.json({'Dababase cannot delete delected Book ': error}).status(400)
     }
     
 })

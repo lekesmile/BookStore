@@ -51,7 +51,7 @@
 }
 
 .jumbo-head{
-  background-image: linear-gradient(to right, rgb(127,192,182), orange);
+  background-image: linear-gradient(to bottom, rgb(127,192,182), rgb(255, 255, 251));
 }
 
 .form-div{
@@ -60,8 +60,74 @@
 }
 .title{
   font-family: 'Piedra', cursive;
+  font-size: 600%;
 }
 .p-title{
   font-family: 'Dancing Script', cursive;
-  color: azure;
+  color: rgb(10, 10, 22);
+}
+
+.title-span1{
+color: rgb(121, 29, 29);
+}
+
+.booktitle-h3{
+  text-align: center;
+  margin: 32px 0;
+  color: rgb(121,29,29);
+  font-family: 'sans-serif';
+}
+
+.td-icons{
+  cursor: pointer;
+  text-align: center;
+}
+
+.addbook-button{
+  margin: 5px 0;
+  display: flex;
+  float: right;
+}
+/* tr:hover{
+  background-color: rgb(121, 29, 29) !important;
+} */
+
+.modal-backdrop {
+  background-color: rgb(128, 128, 128);
+}
+
+.FormBook{
+
+ background-color: rgb(127,192,182);
+  margin: 80px auto;
+  
+}
+Form{
+  width: 50%;
+  margin: 0 auto;
+  
+}
+.FormBookH3{
+  text-align: center;
+}
+
+.alert{
+  padding: 12px;
+  color: lightcyan;
+  text-align: center;
+  text-transform: capitalize;
+  width: 90%;
+  border-radius: 2px;
+  margin: 15px auto;
+
+}
+
+.alert-success{
+  background-color: rgb(209, 196, 8);
+  color: antiquewhite;
+}
+
+.alert-error{
+  background-color: red;
+  color: black;
 }
