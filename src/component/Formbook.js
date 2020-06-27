@@ -6,16 +6,28 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { Button } from 'react-bootstrap';
 import ModalMod from './ModalMod';
 import FormSaveBook from './FormSaveBook';
+import FormEdit from './FormEdit'
 
 
-const Formbook = ({book, deletefromDatabase}) => {
+const Formbook = ({book, deletefromDatabase, search}) => {
 
+
+  // States
 const [modalShow, setModalShow] = useState(false);
 const [saveBook, setSaveBook] = useState(false)
+const [editBook, setEditBook] = useState(false)
+
+// Filter methods
+
+  const filteredBooks = book.filter(filterBok => {
+  return filterBok.author.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+});
+
 
 
     return (
     <div className="form-div" >
+     
     <Table striped bordered hover="danger"  size="sm"  >
   <thead>
     <tr>
@@ -30,7 +42,7 @@ const [saveBook, setSaveBook] = useState(false)
     </tr>
   </thead>
   <tbody>
-      {book.map((book, index)=>{
+      {filteredBooks.map((book, index)=>{
      return(
   <tr key={book._id}>
       <td>{Number(index) + 1}</td>
@@ -38,7 +50,7 @@ const [saveBook, setSaveBook] = useState(false)
      <td>{book.title}</td>
      <td>{book.serialNo}</td>
      <td>{moment(book.saved).format('L')}</td>
-     <td className="td-icons"> <FaRegEdit /></td>
+     <td className="td-icons"> <FaRegEdit onClick={()=>setEditBook(true)} /></td>
      <td className="td-icons"> <AiOutlineDelete onClick={() => setModalShow(true)}/> </td>
    
      <ModalMod 
@@ -62,6 +74,8 @@ const [saveBook, setSaveBook] = useState(false)
      </Button> 
      {saveBook && <FormSaveBook />}
      {/* {saveBook === true ? <FormSaveBook /> : ''} */}
+
+     {editBook && <FormEdit />}
      </div>
     )
 }

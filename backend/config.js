@@ -12,7 +12,8 @@ const secrets = {
   env: process.env.APP_ENV,
 
   dbUrl: process.env.DB_URL,
-  dbName: process.env.DB_NAME
+  dbName: process.env.DB_NAME,
+  passwordSaltNo: process.env.saltRounds
 
 }
 

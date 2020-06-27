@@ -4,12 +4,21 @@ import "./App.css";
 import Header from "./component/Header";
 import Formbook from "./component/Formbook";
 import Axios from 'axios';
-
+import SearchBook from './component/SearchBook';
 
 const App = () => {
 
   // State & Setstate
 const [books, setBook] = useState([])
+
+    // Search State
+const [search , setSearch] = useState('')
+    
+
+ // Chandle our search input state change
+    const chandleChange =(e)=>{
+      setSearch(e.target.value)
+    }
 
 // Get data to fill table
 const getDataFromBackend =()=>{
@@ -42,17 +51,24 @@ const deletefromDatabase =(id)=>{
     console.log(e)
 })
 }
+
+
  
   return (
     <div>
       <Header />
-      <div style={{display: 'flex',  width: '50%', margin:' 50px auto', justifyContent: 'space-between'}}>
-      <h3 >Books Avaliable</h3>
-      <input type="type" placeholder="Search ...."></input>
-      </div>
+
+      <SearchBook 
+      search={search}
+      chandleChange={chandleChange}
+       />
+
       <Formbook
        book={books} 
        deletefromDatabase={deletefromDatabase}
+       search={search}
+       chandleChange={chandleChange}
+ 
        />
      
     

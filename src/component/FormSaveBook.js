@@ -39,6 +39,8 @@ const FormSaveBook = () => {
         })
     }
 
+
+
     //Handle Alert
 
  const handleAlert = ({type, text}) =>{
@@ -52,7 +54,7 @@ const FormSaveBook = () => {
         <div className="FormBook">
             <h3 className="FormBookH3">Add a Book</h3>
             {alert.show && <Alert type={alert.type} text={alert.text} />}
-      {/* <Alert /> */}
+     
  <Form>
   <Form.Group >
     <Form.Label>Author</Form.Label>
