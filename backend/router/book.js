@@ -34,14 +34,15 @@ router.post('/', async (req, res)=>{
             author,
             title ,
             serialNo,
-            sublicationDate
+            sublicationDate,
+           
          })
 
        const savedBook =  await firstBook.save()
 
-       return  res.json({'Book successfully saved into database': savedBook }).status(200)
+       return  res.status(200).json({'Book successfully saved into database': savedBook })
      } catch (error) {
-        return  res.json({'Dababase is currently down': error}).status(400)
+        return  res.status(400).json({'Error saving a book': error})
      }
 })
 
@@ -49,9 +50,9 @@ router.delete('/:id', async (req, res)=>{
     try {
     const findBook =  await Book.findByIdAndDelete({_id: req.params.id})
         
-       return  res.json({"Deleted Book is " : findBook}).status(200)
+       return  res.status(200).json({"Deleted Book is " : findBook})
     } catch (error) {
-        return  res.json({'Dababase cannot delete delected Book ': error}).status(400)
+        return  res.status(400).json({'Dababase cannot delete delected Book ': error})
     }
     
 })
@@ -59,9 +60,9 @@ router.delete('/:id', async (req, res)=>{
 router.put('/:id', async (req, res)=>{
     try {
         const updateBook = await Book.findByIdAndUpdate({_id: req.params.id}, req.body )
-        return  res.json({"Updated Book " : updateBook}).status(200)
+        return  res.status(200).json({"Updated Book " : updateBook})
     } catch (error) {
-        return  res.json({'Book cannot be updated, try again later ': error.message}).status(400)
+        return  res.status(400).json({'Book cannot be updated, try again later ': error.message})
     }
     
 })

@@ -19,7 +19,7 @@ app.use(cors())
 
 //Router
 app.use('/', book)
-app.use('/signup', user)
+app.use('/', user)
 
 
 
