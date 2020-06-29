@@ -7,9 +7,9 @@ const config = require('../config')
 try {
     mongoose.set('useCreateIndex', true)
     mongoose.set('useFindAndModify', false);
-    mongoose.connect(config.dbUrl, { useNewUrlParser: true,  useUnifiedTopology: true})
+    mongoose.connect(config.dbcUrl, { useNewUrlParser: true,  useUnifiedTopology: true})
       .then(()=>{
-         console.log("Database connection OK") 
+         console.log("We're connected to db") 
       }) 
     } catch (error) {
         console.log("Error connecting to the database" + error)

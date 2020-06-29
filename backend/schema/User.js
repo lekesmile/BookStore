@@ -5,14 +5,16 @@ const UserSchema = new Schema({
 
     username:{
         type:String,
-        min: 3,
+        min: [3, 'Username must be more than 3 letters'],
+        lowercase: true,
         required:true,
-        unique:true
+        unique:true,
+        trim: true
     },
     password:{
         type:String,
         min:4,
-        required:true
+        required:[true, 'Password is required']
     },
     registerd:{
         type:Date,
@@ -22,7 +24,9 @@ const UserSchema = new Schema({
         type:String,
         enum:['user', 'admin'],
         default:'user'
-    }
+    },
+
+    bookPublished: [{ type: Schema.Types.ObjectId, ref: 'Book' }]
 
 })
 

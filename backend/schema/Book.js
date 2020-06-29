@@ -29,8 +29,9 @@ const BookSchema = new Schema({
    saved:{
        type:Date,
        default: Date.now
-   }
+   },
 
+   userInfo: { type: Schema.Types.ObjectId, ref: 'User' },
  
 });
 
