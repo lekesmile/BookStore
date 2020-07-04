@@ -6,7 +6,7 @@ const Book = require('../schema/Book')
 
 router.get('/', async (req, res) => {
     try {
-     const findBook = await Book.find({})
+     const findBook = await Book.find({}).populate('userInfo')
      return  res.json(findBook).status(200)
     } catch (error) {
         return  res.json({'Sorry no data found on our database': error}).status(400)
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res)=>{
 
-  let {author, title, serialNo, sublicationDate} = req.body 
+  let {author, title, serialNo, sublicationDate,userInfo} = req.body 
 
      try {
          const firstBook = new Book({
@@ -35,7 +35,7 @@ router.post('/', async (req, res)=>{
             title ,
             serialNo,
             sublicationDate,
-           
+            userInfo
          })
 
        const savedBook =  await firstBook.save()

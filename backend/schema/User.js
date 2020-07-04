@@ -3,13 +3,19 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
 
-    username:{
+ 
+    name:{
         type:String,
         min: [3, 'Username must be more than 3 letters'],
         lowercase: true,
         required:true,
-        unique:true,
         trim: true
+    },
+    email:{
+        type:String,
+        min:6,
+        unique: true,
+        required: true
     },
     password:{
         type:String,
