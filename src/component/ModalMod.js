@@ -1,26 +1,28 @@
 import React from 'react'
-import {Modal, Button} from 'react-bootstrap'
-
+import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button'
 const ModalMod = (props) => {
-    return (
-        <Modal
-          {...props}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Body>
-            <h4>{props.centeredModal}</h4>
-            <p>
-              {props.messagecont}
-            </p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={props.onHide}>Cancel</Button>
-            <Button variant="danger" onClick={props.onNohide}>Delete</Button>
-          </Modal.Footer>
-        </Modal>
-      );
-    }
+  return (
+    <div>
+
+<Modal
+  open={props.show}
+  onClose={props.onHide}
+  aria-labelledby={props.modelTitle}
+  aria-describedby={props.messageTitle}
+>
+  {props.body}
+
+          <Button variant="danger" onClick={props.handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={props.handleDel}>
+              delete book
+            </Button>
+</Modal>
+
+    </div>
+  )
+}
 
 export default ModalMod

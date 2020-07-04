@@ -5,11 +5,12 @@ const User = require('../schema/User')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
+
 router.get('/user', async (req, res) => {
     try {
-     const findUser = await User.find({})
+     const findUser = await User.find({}).populate('bookPublished')
      console.log(findUser)
-     return  res.status(200).json(findUser)
+     return  res.status(200).json({findUser})
     } catch (error) {
         return  res.status(400).json({'Sorry no data found on our database': error})
     }
@@ -19,17 +20,19 @@ router.get('/user', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
-         //Check if user already exit
-        const alreadyRegistered = await User.findOne({ username: req.body.username });
-        if (alreadyRegistered) return res.status(400).json({ message: "Username already exits" })
 
-        let {username, password} = req.body
+         //Check if user already exit
+        const alreadyRegistered = await User.findOne({ email: req.body.email });
+        if (alreadyRegistered) return res.status(400).json({ message: "email already exits" })
+
+        let {name, password, email} = req.body
           
         //Password hashing
          const hash = bcrypt.hashSync(password, Number(config.passwordSaltNo));
 
           const trynewUser = new User({
-              username : username,
+              name : name,
+              email:email,
               password : hash
           })
 
@@ -37,18 +40,18 @@ router.post('/signup', async (req, res) => {
           return res.status(200).json(newuser)
           
     } catch (error) {
-        return  res.status(400).json({'Sorry, user cannot be registered': error})
+        return  res.status(400).json({'Sorry, user cannot be registered': error.message})
 
     }
 })
 
 router.post('/login', async (req, res)=>{
-    let { username, password } = req.body;
+    let { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
 
-        if (!user) return res.status(400).json({ user: `${username} is not found in the database` });
+        if (!user) return res.status(400).json({ user: `${email} is not found in the database` });
 
 
         if (user) {

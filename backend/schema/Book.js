@@ -31,7 +31,7 @@ const BookSchema = new Schema({
        default: Date.now
    },
 
-   userInfo: { type: Schema.Types.ObjectId, ref: 'User' },
+   userInfo: { type: Schema.Types.ObjectId, ref: 'User', required: true },
  
 });
 
