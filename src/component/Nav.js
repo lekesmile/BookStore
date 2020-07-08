@@ -1,36 +1,97 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { GiBlackBook } from "react-icons/gi";
+import { FaUserCircle } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
-
-
+let data = JSON.parse(localStorage.getItem("userDetails"));
 
 const Nav = () => {
-  
+  const [showlogin, setShowLogin] = useState(true);
 
+  const history = useHistory();
 
-  return (
-    <div>
-    <nav >
-      <h1 className="logo">logo</h1>
-      <ul className="nav-ul">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
+  const checkLocalStorage = () => {
+    let data = JSON.parse(localStorage.getItem("userDetails"));
+    if (data === " ") {
+      setShowLogin(false);
+    } else {
+      console.log("Checking " + JSON.stringify(data.user.name));
+      setShowLogin(true);
+    }
+  };
 
-        <li>
-          {" "}
-          <Link to="/about">About</Link>
-        </li>
-        <li>
+  // useEffect(() => {
+  //   checkLocalStorage();
+  // });
+
+  const handlelogout = () => {
+    console.log("remove item");
+    localStorage.removeItem("userDetails");
+    history.push("/");
+    window.location.reload();
+  };
+
+  const renderLoginSignUp = () => {
+    return (
+      <div>
+        <li style={{ float: "right" }}>
           {" "}
           <Link to="/login">login</Link>
         </li>
-        <li>
+        <li style={{ float: "right" }}>
           {" "}
           <Link to="/signup">signup</Link>
         </li>
-      </ul>
-    </nav>
+      </div>
+    );
+  };
+
+  const renderLoginUser = () => {
+    let user = JSON.stringify(data.user.name);
+    let userInfo = user.substring(1).slice(0, -1);
+    return (
+      <div
+        style={{
+          color: "white",
+          width: "15%",
+          display: "flex",
+          float: "right",
+        }}
+      >
+        <p>{` ${userInfo.toUpperCase()}`}</p>
+        <FaUserCircle onClick={handlelogout} style={{ margin: 20 }} />
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <nav>
+        <div className="navH1">
+          {" "}
+          <GiBlackBook
+            style={{
+              width: 100,
+              height: 50,
+              color: "white",
+              margin: " 0 auto",
+            }}
+          />
+        </div>
+
+        <ul className="nav-ul">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/about">About</Link>
+          </li>
+
+          {showlogin === false ? renderLoginSignUp() : renderLoginUser()}
+        </ul>
+      </nav>
     </div>
   );
 };
