@@ -2,36 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .header-container {
   display: flex;
 }
@@ -44,41 +14,58 @@
   justify-content: center;
   margin: 1px auto;
 }
-
-.jumbo-head{
-  background-image: linear-gradient(to bottom, rgb(127,192,182), rgb(255, 255, 251));
+.container {
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+  min-height: 500px;
 }
 
-.form-div{
+.container2 {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  min-height: 500px;
+}
+.jumbo-head {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(127, 192, 182),
+    rgb(255, 255, 251)
+  );
+}
+
+.form-div {
   width: 70%;
   margin: 1px auto;
 }
-.title{
-  font-family: 'Piedra', cursive;
+.title {
+  font-family: "Piedra", cursive;
   font-size: 600%;
 }
-.p-title{
-  font-family: 'Dancing Script', cursive;
+.p-title {
+  font-family: "Dancing Script", cursive;
   color: rgb(10, 10, 22);
+  font-size: large;
 }
 
-.title-span1{
-color: rgb(121, 29, 29);
+.title-span1 {
+  color: rgb(121, 29, 29);
 }
 
-.booktitle-h3{
+.booktitle-h3 {
   text-align: center;
   margin: 32px 0;
-  color: rgb(121,29,29);
-  font-family: 'sans-serif';
+  color: rgb(121, 29, 29);
+  font-family: "sans-serif";
 }
 
-.td-icons{
+.td-icons {
   cursor: pointer;
   text-align: center;
 }
 
-.addbook-button{
+.addbook-button {
   margin: 5px 0;
   display: flex;
   float: right;
@@ -91,22 +78,19 @@ color: rgb(121, 29, 29);
   background-color: rgb(128, 128, 128);
 }
 
-.FormBook{
-
- background-color: rgb(127,192,182);
+.FormBook {
+  background-color: rgb(127, 192, 182);
   margin: 80px auto;
-  
 }
-Form{
+Form {
   width: 50%;
   margin: 0 auto;
-  
 }
-.FormBookH3{
+.FormBookH3 {
   text-align: center;
 }
 
-.alert{
+.alert {
   padding: 12px;
   color: lightcyan;
   text-align: center;
@@ -114,64 +98,130 @@ Form{
   width: 90%;
   border-radius: 2px;
   margin: 15px auto;
-
 }
 
-.alert-success{
+.alert-success {
   background-color: rgb(209, 196, 8);
   color: antiquewhite;
 }
 
-.alert-error{
+.alert-error {
   background-color: red;
   color: black;
 }
 
-.jumbotron{
+.jumbotron {
   position: relative;
-  padding:0 !important;
-  margin-top:70px !important;
-  background: #eee;
-  margin-top: 23px;
-  text-align:center;
+  padding: 0 !important;
+  text-align: center;
   margin-bottom: 0 !important;
 }
-.container-fluid{
-  padding:0 !important;
+.container-fluid {
+  padding: 0 !important;
 }
-.col-xs-4{
-  background:rgba(157,52,99,0.7);    
+.col-xs-4 {
+  background: rgba(157, 52, 99, 0.7);
 }
-
-
 
 nav {
   display: flex;
-  padding: 30px  auto 0 auto;
-  color: bisque;
+  padding: 20px auto 0 auto;
+  width: 100%;
+  /* color: bisque;
   background-color: rgb(9, 27, 21);
   text-transform: uppercase;
-  text-decoration: none;
+  text-decoration: none; */
 }
-.nav-ul {
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  padding: 12px;
+
+.navH1 {
+  width: 10%;
+  float: left;
   list-style-type: none;
-  text-decoration: none;
-
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
-nav li {
+ul {
+  float: left;
+  width: 90%;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  text-transform: uppercase;
+}
+
+li a {
+  display: block;
   color: white;
-  background-color: wheat;
+  text-align: center;
+  padding: 22px 20px;
   text-decoration: none;
 }
 
-.Login{
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.formDiv {
   display: flex;
   width: 50%;
   margin: 120px auto;
   height: 250px;
+}
+.formtextfield {
+  margin: 10px 0;
+}
+
+.container-fluid {
+  height: 300px;
+  padding: 300px;
+}
+
+.materialData {
+  width: 100%;
+  margin: 0 auto;
+}
+.footer {
+  width: 100%;
+  background-color: rgb(121, 29, 29);
+  color: white;
+  text-align: center;
+}
+.footerDiv1 {
+  margin-top: 15px;
+}
+
+.footerIcon {
+  padding: 8px;
+  margin: 0 10px;
+  size: 20px;
+}
+
+.MuiTableContainer-root {
+  overflow-x: none;
+}
+
+.saveForm {
+  width: 50%;
+  margin: 0 auto;
+  height: 450px;
+}
+.textCat {
+  width: 60%;
+  margin: 10px auto;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.textfie {
+  margin: 20px auto;
 }
