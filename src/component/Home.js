@@ -26,25 +26,12 @@ const Home = () => {
 
   // Delete Post
 
-  const deletefromDatabase = (id) => {
-    Axios.delete(`http://localhost:5000/${id}`)
-      .then((res) => {
-        console.log("delete" + id);
-        const del = books.filter((books) => id !== books.id);
-        setBook(del);
-        // window.location.reload();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
   return (
     <React.Fragment>
       <div>
         <Header />
 
-        <Books book={books} deletefromDatabase={deletefromDatabase} />
+        <Books book={books} />
       </div>
     </React.Fragment>
   );

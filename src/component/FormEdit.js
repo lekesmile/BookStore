@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { useHistory } from "react-router-dom";
 
 import Alert from "./Alert";
 import Axios from "axios";
 
-const FormEdit = () => {
+const FormEdit = (props) => {
+  const history = useHistory();
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [serialNo, setSerialNo] = useState("");
@@ -13,8 +15,8 @@ const FormEdit = () => {
   const [alert, setAlert] = useState({ show: "false" });
 
   // auto Fill in the form
-  const editFormFillContent = (id) => {
-    Axios.get(`http://localhost/${"5ef97330b83f233c80e971fd"}`).then((res) => {
+  const editFormFillContent = () => {
+    Axios.get(`http://localhost:5000/${props.match.params.id}`).then((res) => {
       setAuthor(res.data.author);
       setTitle(res.data.title);
       setSerialNo(res.data.serialNo);
@@ -24,25 +26,27 @@ const FormEdit = () => {
 
   useEffect(() => {
     editFormFillContent();
-  }, []);
-  // Request Object to post
+  });
 
+  // Request Object to post
+  let data = JSON.parse(localStorage.getItem("userDetails"));
   const newbook = {
     author: author,
     title: title,
     serialNo: serialNo,
     saved: PublishedDate,
+    userInfo: JSON.parse(JSON.stringify(data.user._id)),
   };
 
   // Axios Post request
 
   const saveEditedBook = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000", newbook)
+    Axios.put(`http://localhost:5000/${props.match.params.id}`, newbook)
       .then((res) => {
         console.log(res.data);
         handleAlert({ type: "alert-success", text: "Book Added" });
-        setTimeout(window.location.reload(), 30000);
+        setTimeout(history.push("/"), 70000);
       })
       .catch((e) => {
         console.log(e);
@@ -64,67 +68,77 @@ const FormEdit = () => {
       <h3 className="FormBookH3">Edit Book</h3>
       {alert.show && <Alert type={alert.type} text={alert.text} />}
 
-      <form class="saveForm">
-        <div className="textfie">
+      <form>
+        <div className="saveForm">
           <TextField
+            className="textCat"
+            color="primary"
+            type="text"
             label="author"
-            multiline
-            rowsMax={4}
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            variant="outlined"
             InputLabelProps={{
               shrink: true,
             }}
           />
-        </div>
-        <div className="textfie">
+
           <TextField
+            className="textCat"
             label="title"
-            multiline
-            rowsMax={4}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            variant="outlined"
             InputLabelProps={{
               shrink: true,
             }}
           />
-        </div>
-        <div className="textfie">
+
           <TextField
+            className="textCat"
             label="serial No"
-            multiline
-            rowsMax={4}
+            size="small"
             value={serialNo}
             onChange={(e) => setSerialNo(e.target.value)}
-            variant="outlined"
             InputLabelProps={{
               shrink: true,
             }}
           />
-        </div>
-        <div className="textfie">
+
           <TextField
+            className="textCat"
             label="published date"
-            multiline
-            rowsMax={4}
+            type="date"
             value={PublishedDate}
             onChange={(e) => setPublishedDate(e.target.value)}
-            variant="outlined"
             InputLabelProps={{
               shrink: true,
             }}
           />
+
+          <div>
+            <Button
+              style={{ margin: "10px 5px 0 0" }}
+              variant="outlined"
+              size="small"
+              color="secondary"
+              type="submit"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              style={{ margin: "10px 5px 0 5px" }}
+              variant="outlined"
+              size="small"
+              color="primary"
+              type="submit"
+              onClick={saveEditedBook}
+            >
+              Submit
+            </Button>
+          </div>
         </div>
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          onClick={saveEditedBook}
-        >
-          Submit
-        </Button>
       </form>
     </div>
   );
