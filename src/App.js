@@ -8,6 +8,9 @@ import Login from "./component/Login";
 import About from "./component/About";
 import SignUp from "./component/SignUp";
 import Footer from "./component/Footer";
+import FormEdit from "./component/FormEdit";
+import FormSaveBook from "./component/FormSaveBook";
+import FormDelete from "./component/FormDelete";
 
 const App = () => {
   return (
@@ -16,10 +19,13 @@ const App = () => {
         <Nav />
 
         <Switch>
-          <Route exact path="/" component={Home} /> *
+          <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/edit/:id" component={FormEdit} />
+          <Route path="/save/" component={FormSaveBook} />
+          <Route path="/delete/:id" component={FormDelete} />
         </Switch>
 
         <Footer />

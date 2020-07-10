@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
-import FormSaveBook from "./FormSaveBook";
-import FormEdit from "./FormEdit";
+
 import {
   TableContainer,
   Paper,
@@ -12,8 +11,6 @@ import {
   TableCell,
   TableBody,
   TablePagination,
-  Modal,
-  Button,
 } from "@material-ui/core";
 import moment from "moment";
 import SearchBook from "./SearchBook";
@@ -25,29 +22,10 @@ import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
-import Fade from "@material-ui/core/Fade";
-import Backdrop from "@material-ui/core/Backdrop";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
+import { Link } from "react-router-dom";
 
 const Books = ({ book, deletefromDatabase }) => {
-  const classes = useStyles();
   //   // States
-  const [showModal, setShowModal] = useState(false);
-  const [saveBook, setSaveBook] = useState(false);
-  const [editBook, setEditBook] = useState(false);
 
   //Search State
   const [search, setSearch] = useState("");
@@ -55,10 +33,6 @@ const Books = ({ book, deletefromDatabase }) => {
   // Chandle our search input state change
   const chandleChange = (e) => {
     setSearch(e.target.value);
-  };
-
-  const handleClose = () => {
-    setShowModal(false);
   };
 
   // Filter methods
@@ -115,59 +89,15 @@ const Books = ({ book, deletefromDatabase }) => {
                     <TableCell> {book.serialNo} </TableCell>
                     <TableCell> {moment(book.saved).format("L")} </TableCell>
                     <TableCell className="td-icons">
-                      <FaRegEdit
-                        onClick={() => {
-                          setEditBook(true);
-                        }}
-                      />
+                      <Link to={"/edit/" + book._id}>
+                        <FaRegEdit />
+                      </Link>
                     </TableCell>
                     <TableCell className="td-icons">
-                      <AiOutlineDelete
-                        onClick={() => {
-                          setShowModal(true);
-                        }}
-                      />
+                      <Link to={"/delete/" + book._id}>
+                        <AiOutlineDelete />
+                      </Link>
                     </TableCell>
-                    {showModal && (
-                      <Modal
-                        book={book}
-                        className={classes.modal}
-                        open={showModal}
-                        onClose={handleClose}
-                        closeAfterTransition
-                        BackdropComponent={Backdrop}
-                        BackdropProps={{
-                          timeout: 500,
-                        }}
-                      >
-                        <Fade in={showModal}>
-                          <div className={classes.paper}>
-                            <h2 id="transition-modal-title">Comfirmation</h2>
-                            <p id="transition-modal-description">
-                              Are you sure you want to delete book ?
-                            </p>
-                            <Button
-                              style={{ margin: 10 }}
-                              variant="outlined"
-                              color="primary"
-                              onClick={handleClose}
-                            >
-                              Cancel
-                            </Button>
-                            <Button
-                              variant="outlined"
-                              color="secondary"
-                              onClick={() => {
-                                console.log(book._id);
-                                deletefromDatabase(book._id);
-                              }}
-                            >
-                              Delete
-                            </Button>
-                          </div>
-                        </Fade>
-                      </Modal>
-                    )}
                   </TableRow>
                 );
               })}
@@ -193,19 +123,9 @@ const Books = ({ book, deletefromDatabase }) => {
             ActionsComponent={TablePaginationActions}
           />
         </TableContainer>
-        <Button
-          variant="outlined"
-          color="primary"
-          size="small"
-          onClick={() => {
-            setSaveBook(true);
-          }}
-        >
+        <Link to={"/save/"} className="addButton">
           Add Book
-        </Button>
-
-        {saveBook && <FormSaveBook />}
-        {editBook && <FormEdit />}
+        </Link>
       </div>
     </React.Fragment>
   );

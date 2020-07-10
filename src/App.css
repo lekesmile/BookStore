@@ -79,7 +79,6 @@
 }
 
 .FormBook {
-  background-color: rgb(127, 192, 182);
   margin: 80px auto;
 }
 Form {
@@ -211,9 +210,9 @@ li a:hover {
 }
 
 .saveForm {
-  width: 50%;
-  margin: 0 auto;
-  height: 450px;
+  width: 100%;
+  margin: 10px auto;
+  min-height: 450px;
 }
 .textCat {
   width: 60%;
@@ -224,4 +223,18 @@ li a:hover {
 
 .textfie {
   margin: 20px auto;
+}
+.MuiFormControl-root.MuiTextField-root {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.addButton {
+  padding: 12px;
+  color: #e0e0ec;
+  margin: 30px auto;
+  background-color: rgb(121, 29, 29);
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
 }
