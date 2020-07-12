@@ -87,7 +87,10 @@ const Books = ({ book, deletefromDatabase }) => {
                     <TableCell>{book.author}</TableCell>
                     <TableCell> {book.title} </TableCell>
                     <TableCell> {book.serialNo} </TableCell>
-                    <TableCell> {moment(book.saved).format("L")} </TableCell>
+                    <TableCell>
+                      {" "}
+                      {moment(book.publicationDate).format("L")}{" "}
+                    </TableCell>
                     <TableCell className="td-icons">
                       <Link to={"/edit/" + book._id}>
                         <FaRegEdit />

@@ -20,6 +20,7 @@ export default function Login() {
         console.log(res.data);
         localStorage.setItem("userDetails", JSON.stringify(res.data));
         history.push("/");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

@@ -29,13 +29,13 @@ const FormEdit = (props) => {
   });
 
   // Request Object to post
-  let data = JSON.parse(localStorage.getItem("userDetails"));
+  // let data = JSON.parse(localStorage.getItem("userDetails"));
   const newbook = {
     author: author,
     title: title,
     serialNo: serialNo,
-    saved: PublishedDate,
-    userInfo: JSON.parse(JSON.stringify(data.user._id)),
+    publicationDate: PublishedDate,
+    // userInfo: JSON.parse(JSON.stringify(data.user._id)),
   };
 
   // Axios Post request
@@ -64,7 +64,7 @@ const FormEdit = (props) => {
   };
 
   return (
-    <div className="FormBook">
+    <div className="FormBook container">
       <h3 className="FormBookH3">Edit Book</h3>
       {alert.show && <Alert type={alert.type} text={alert.text} />}
 
@@ -72,6 +72,7 @@ const FormEdit = (props) => {
         <div className="saveForm">
           <TextField
             className="textCat"
+            required="true"
             color="primary"
             type="text"
             label="author"
@@ -84,6 +85,7 @@ const FormEdit = (props) => {
 
           <TextField
             className="textCat"
+            required="true"
             label="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -94,6 +96,7 @@ const FormEdit = (props) => {
 
           <TextField
             className="textCat"
+            required="true"
             label="serial No"
             size="small"
             value={serialNo}
@@ -105,6 +108,7 @@ const FormEdit = (props) => {
 
           <TextField
             className="textCat"
+            required="true"
             label="published date"
             type="date"
             value={PublishedDate}
