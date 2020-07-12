@@ -17,14 +17,14 @@ const FormSaveBook = () => {
 
   // Request Object to post
 
-  let data = JSON.parse(localStorage.getItem("userDetails"));
+  // let data = JSON.parse(localStorage.getItem("userDetails"));
 
   const newbook = {
     author: author,
     title: title,
     serialNo: serialNo,
-    saved: PublishedDate,
-    userInfo: JSON.parse(JSON.stringify(data.user._id)),
+    publicationDate: PublishedDate,
+    // userInfo: JSON.parse(JSON.stringify(data.user._id)),
   };
 
   // Axios Post request
@@ -61,6 +61,7 @@ const FormSaveBook = () => {
         <div className="saveForm">
           <TextField
             className="textCat"
+            required="true"
             color="primary"
             type="text"
             label="author"
@@ -74,6 +75,7 @@ const FormSaveBook = () => {
 
           <TextField
             className="textCat"
+            required="true"
             color="primary"
             type="text"
             label="title"
@@ -87,6 +89,7 @@ const FormSaveBook = () => {
 
           <TextField
             className="textCat"
+            required="true"
             color="primary"
             type="number"
             label="serial no"
@@ -100,6 +103,7 @@ const FormSaveBook = () => {
 
           <TextField
             className="textCat"
+            required="true"
             color="primary"
             type="date"
             label="date"

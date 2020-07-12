@@ -25,15 +25,14 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  let { author, title, serialNo, sublicationDate, userInfo } = req.body;
+  let { author, title, serialNo, publicationDate } = req.body;
 
   try {
     const firstBook = new Book({
       author,
       title,
       serialNo,
-      sublicationDate,
-      userInfo,
+      publicationDate,
     });
 
     const savedBook = await firstBook.save();

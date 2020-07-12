@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GiBlackBook } from "react-icons/gi";
 import { FaUserCircle } from "react-icons/fa";
@@ -7,23 +7,23 @@ import { useHistory } from "react-router-dom";
 let data = JSON.parse(localStorage.getItem("userDetails"));
 
 const Nav = () => {
-  const [showlogin, setShowLogin] = useState(true);
+  const [login, setLogin] = useState(false);
 
   const history = useHistory();
 
   const checkLocalStorage = () => {
     let data = JSON.parse(localStorage.getItem("userDetails"));
-    if (data === " ") {
-      setShowLogin(false);
+    if (!data) {
+      setLogin(false);
     } else {
       console.log("Checking " + JSON.stringify(data.user.name));
-      setShowLogin(true);
+      setLogin(true);
     }
   };
 
-  // useEffect(() => {
-  //   checkLocalStorage();
-  // });
+  useEffect(() => {
+    checkLocalStorage();
+  });
 
   const handlelogout = () => {
     console.log("remove item");
@@ -50,6 +50,7 @@ const Nav = () => {
   const renderLoginUser = () => {
     let user = JSON.stringify(data.user.name);
     let userInfo = user.substring(1).slice(0, -1);
+
     return (
       <div
         style={{
@@ -89,7 +90,7 @@ const Nav = () => {
             <Link to="/about">About</Link>
           </li>
 
-          {showlogin === false ? renderLoginSignUp() : renderLoginUser()}
+          {login === false ? renderLoginSignUp() : renderLoginUser()}
         </ul>
       </nav>
     </div>
