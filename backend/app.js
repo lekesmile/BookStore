@@ -13,6 +13,11 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static("public"));
 
+// Checking id production
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 //Router
 app.use("/", book);
 app.use("/", user);
