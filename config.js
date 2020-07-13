@@ -8,7 +8,7 @@ const secrets = {
   env: process.env.APP_ENV,
 
   dbUrl: process.env.DB_URL,
-  dbcUrl: String(process.env.DBC_URL),
+  dbcUrl: process.env.DBC_URL,
   dbName: process.env.DB_NAME,
   passwordSaltNo: process.env.SALTROUNDS,
   JWT_Secret: process.env.JWT_SECRET,
