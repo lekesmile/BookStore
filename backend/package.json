@@ -8,8 +8,8 @@
     "install-client": "cd..&& npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node app.js",
-    "server": "nodemon app.js",
     "client": "cd..&& npm start",
+    "server": "nodemon app.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Igunnuoda Olorunleke",
