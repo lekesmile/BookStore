@@ -68,7 +68,7 @@ export default function Login() {
           />
         </div>
 
-        <Button variant="contained" color="primary" type="submit" size="small">
+        <Button variant="outlined" color="primary" type="submit" size="small">
           login
         </Button>
       </form>

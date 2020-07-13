@@ -82,7 +82,7 @@ const SignUp = () => {
           />
         </div>
 
-        <Button variant="contained" color="primary" type="submit" size="small">
+        <Button variant="outlined" color="primary" type="submit" size="small">
           signup
         </Button>
       </form>

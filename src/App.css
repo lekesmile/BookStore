@@ -177,7 +177,7 @@ li a:hover {
   height: 250px;
 }
 .formtextfield {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .container-fluid {
@@ -210,15 +210,13 @@ li a:hover {
 }
 
 .saveForm {
-  width: 100%;
   margin: 10px auto;
   min-height: 450px;
 }
 .textCat {
   width: 60%;
   margin: 10px auto;
-  display: inline-block;
-  margin: 20px auto;
+  /* display: inline-block; */
 }
 
 .textfie {

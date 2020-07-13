@@ -12,6 +12,6 @@ clone the project, cd into the folder
 2. npm start
 3. cd into the backend folder
 4. npm install
-5. create your .env file, have a look at the config.js
+5. create your own .env file, have a look at the config.js
 6. nodemon app.js
 7. enjoy

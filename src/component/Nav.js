@@ -16,7 +16,6 @@ const Nav = () => {
     if (!data) {
       setLogin(false);
     } else {
-      console.log("Checking " + JSON.stringify(data.user.name));
       setLogin(true);
     }
   };
@@ -60,7 +59,7 @@ const Nav = () => {
           float: "right",
         }}
       >
-        <p>{` ${userInfo.toUpperCase()}`}</p>
+        <p> {` ${userInfo.toUpperCase()}`}</p>
         <FaUserCircle onClick={handlelogout} style={{ margin: 20 }} />
       </div>
     );
