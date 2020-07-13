@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "install-client": "npm install --prefix client",
-    "heroku-postbuild": "npm run install-client && npm run build --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build --prefix client",
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm start --prefix client",

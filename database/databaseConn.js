@@ -10,7 +10,6 @@ try {
     .connect(secret.dbcUrl, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useMongoClient: true,
     })
     .then(() => {
       console.log("We're connected to Mongodb");
