@@ -3,12 +3,11 @@ require("dotenv").config();
 const secrets = {
   APP_NAME: "BookStore",
 
-  domain: process.env.APP_URL,
-  port: Number(process.env.PORT),
-  dbUrl: process.env.DB_URL,
-  dbcUrl: process.env.DBC_URL,
-  passwordSaltNo: Number(process.env.SALTROUNDS),
-  JWT_Secret: process.env.JWT_SECRET,
+  PORT: Number(process.env.PORT),
+  DB_URL: process.env.DB_URL,
+  DBC_URL: process.env.DBC_URL,
+  SALTROUNDS: Number(process.env.SALTROUNDS),
+  JWT_SECRET: process.env.JWT_SECRET,
 };
 
 module.exports = secrets;

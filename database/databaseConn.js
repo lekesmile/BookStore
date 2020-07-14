@@ -8,7 +8,7 @@ try {
   mongoose.set("useFindAndModify", false);
   mongoose.set("useCreateIndex", true);
   mongoose.set("useUnifiedTopology", true);
-  mongoose.connect(secret.dbcUrl).then(() => {
+  mongoose.connect(secret.DBC_URL).then(() => {
     console.log("We're connected to Mongodb");
   });
 } catch (error) {

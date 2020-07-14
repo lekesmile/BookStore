@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
     let { name, password, email } = req.body;
 
     //Password hashing
-    const hash = bcrypt.hashSync(password, config.passwordSaltNo);
+    const hash = bcrypt.hashSync(password, config.SALTROUNDS);
 
     const trynewUser = new User({
       name: name,
@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
 
       jwt.sign(
         payload,
-        config.JWT_Secret,
+        config.JWT_SECRET,
         { expiresIn: 3600 },
         (err, token) => {
           if (err) throw err;
