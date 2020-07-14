@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const secret = require("../config/config");
 // //Mongose Conection
 
-const url = encodeURI(secret.DBC_URL);
+const url = secret.DBC_URL;
 
 try {
   mongoose.set("useNewUrlParser", true);
