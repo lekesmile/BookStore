@@ -2,6 +2,7 @@
 
 Add your MONGO_URI to the default.json file. Make sure you set an env var for that and the jwtSecret on deployment
 
+```
 # Install dependencies for server
 
 npm install
@@ -23,6 +24,8 @@ npm run server
 npm run client
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
+
+```
 
 ### Deployment
 
