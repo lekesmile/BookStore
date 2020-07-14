@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
     let { name, password, email } = req.body;
 
     //Password hashing
-    const hash = bcrypt.hashSync(password, Number(config.passwordSaltNo));
+    const hash = bcrypt.hashSync(password, config.passwordSaltNo);
 
     const trynewUser = new User({
       name: name,

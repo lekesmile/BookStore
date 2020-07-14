@@ -20,7 +20,7 @@ app.use("/", book);
 app.use("/", user);
 
 // Checking id production
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
   require("dotenv").config();
   config;
   app.use(express.static("../build"));

@@ -7,7 +7,7 @@ const secrets = {
   port: Number(process.env.PORT),
   dbUrl: process.env.DB_URL,
   dbcUrl: process.env.DBC_URL,
-  passwordSaltNo: process.env.SALTROUNDS,
+  passwordSaltNo: Number(process.env.SALTROUNDS),
   JWT_Secret: process.env.JWT_SECRET,
 };
 
