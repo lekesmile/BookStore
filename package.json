@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Bookstore backend",
   "main": "app.js",
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
+  },
   "scripts": {
     "install-client": "npm install --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build --prefix client",
