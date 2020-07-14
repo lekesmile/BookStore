@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "install-client": "npm install --prefix client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "start": "node app.js",
-    "server": "nodemon -r dotenv/config app.js",
+    "server": "nodemon --exec babel-node --presets babel-preset-env",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

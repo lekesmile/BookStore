@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const secret = require("../config");
+const secret = require("../config/config");
 
 //Mongose Conection
 
