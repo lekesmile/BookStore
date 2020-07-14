@@ -3,12 +3,14 @@ const secret = require("../config/config");
 
 //Mongose Conection
 
+const url = process.env.MONGODB_URI;
+
 try {
   mongoose.set("useNewUrlParser", true);
   mongoose.set("useFindAndModify", false);
   mongoose.set("useCreateIndex", true);
   mongoose.set("useUnifiedTopology", true);
-  mongoose.createConnection(secret.DBC_URL).then(() => {
+  mongoose.connect(url).then(() => {
     console.log("We're connected to Mongodb");
   });
 } catch (error) {
