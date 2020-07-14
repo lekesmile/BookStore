@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const secret = require("../config/config");
 // //Mongose Conection
 
-const url = secret.DBC_URL;
+const url = secret.DBC_URL || "mongodb://localhost:27017/bookstore";
 
 try {
   mongoose.set("useNewUrlParser", true);
