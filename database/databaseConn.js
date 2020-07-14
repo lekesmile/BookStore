@@ -9,7 +9,7 @@ try {
   mongoose.set("useFindAndModify", false);
   mongoose.set("useCreateIndex", true);
   mongoose.set("useUnifiedTopology", true);
-  mongoose.connect(url).then(() => {
+  mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("We're connected to Mongodb");
   });
 } catch (error) {
