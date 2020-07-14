@@ -3,7 +3,7 @@ const secret = require("../config/config");
 
 //Mongose Conection
 
-const url = process.env.MONGODB_URI;
+const url = secret.DBC_URL;
 
 try {
   mongoose.set("useNewUrlParser", true);
