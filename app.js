@@ -31,6 +31,7 @@ app.use(express.static("public"));
 //Router
 app.use("/api", book);
 app.use("/api", user);
+app.use("*", index);
 
 const port = process.env.PORT || secrets.PORT;
 
