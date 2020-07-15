@@ -9,7 +9,7 @@ const Home = () => {
 
   // Get data to fill table
   const getDataFromBackend = () => {
-    Axios.get("/api")
+    Axios.get("api")
       .then((res) => {
         console.log(res.data);
         setBook(res.data);

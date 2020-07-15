@@ -16,7 +16,7 @@ const FormEdit = (props) => {
 
   // auto Fill in the form
   const editFormFillContent = () => {
-    Axios.get(`/api/${props.match.params.id}`).then((res) => {
+    Axios.get(`api/${props.match.params.id}`).then((res) => {
       setAuthor(res.data.author);
       setTitle(res.data.title);
       setSerialNo(res.data.serialNo);
@@ -42,7 +42,7 @@ const FormEdit = (props) => {
 
   const saveEditedBook = (e) => {
     e.preventDefault();
-    Axios.put(`/api/${props.match.params.id}`, newbook)
+    Axios.put(`api/${props.match.params.id}`, newbook)
       .then((res) => {
         console.log(res.data);
         handleAlert({ type: "alert-success", text: "Book Added" });
