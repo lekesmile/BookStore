@@ -6,7 +6,7 @@ const About = () => {
       <h1>About</h1>
       <p>Welcome to the book app !!!</p>
       <p>The app is created as a side project playing with React Hook</p>
-      <P>Play and have fun with it !</P>
+      <p>Play and have fun with it !</p>
     </div>
   );
 };
