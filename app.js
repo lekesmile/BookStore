@@ -34,8 +34,8 @@ app.use(cors());
 app.use(express.static("public"));
 
 //Router
-app.use("/", book);
-app.use("/", user);
+app.use("/api", book);
+app.use("/api", user);
 
 const port = process.env.PORT || secrets.PORT;
 

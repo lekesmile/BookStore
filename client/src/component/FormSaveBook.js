@@ -31,7 +31,7 @@ const FormSaveBook = () => {
 
   const SaveBook = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000", newbook)
+    Axios.post("/api", newbook)
       .then((res) => {
         console.log(res.data);
         handleAlert({ type: "alert-success", text: "Book Added" });
