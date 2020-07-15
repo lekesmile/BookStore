@@ -10,6 +10,15 @@ const morgan = require("morgan");
 const compression = require("compression");
 const app = express();
 
+//Middleware
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static("public"));
+
+//Router
+app.use("/api", book);
+app.use("/api", user);
+
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
   app.disable("x-powered-by");
@@ -22,15 +31,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
-
-//Middleware
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.static("public"));
-
-//Router
-app.use("/api", book);
-app.use("/api", user);
 
 const port = process.env.PORT || secrets.PORT;
 
