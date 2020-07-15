@@ -1,11 +1,11 @@
 const express = require("express");
 const config = require("./config/config");
+require("./database/databaseConn");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const book = require("./router/book");
 const user = require("./router/user");
 const path = require("path");
-const secrets = require("./config/config");
 const morgan = require("morgan");
 const compression = require("compression");
 const app = express();
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(`${__dirname}/client/build/index.html`));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
 
@@ -31,7 +31,6 @@ app.use(express.static("public"));
 //Router
 app.use("/api", book);
 app.use("/api", user);
-app.use("*", index);
 
 const port = process.env.PORT || secrets.PORT;
 
