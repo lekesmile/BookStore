@@ -9,7 +9,7 @@ const Home = () => {
 
   // Get data to fill table
   const getDataFromBackend = () => {
-    Axios.get("http://localhost:5000")
+    Axios.get("/")
       .then((res) => {
         console.log(res.data);
         setBook(res.data);

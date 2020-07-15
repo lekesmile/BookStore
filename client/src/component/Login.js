@@ -15,7 +15,7 @@ export default function Login() {
       email: email,
       password: password,
     };
-    Axios.post("http://localhost:5000/login", loginUser)
+    Axios.post("/login", loginUser)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem("userDetails", JSON.stringify(res.data));

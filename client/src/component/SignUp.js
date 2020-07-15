@@ -17,7 +17,7 @@ const SignUp = () => {
       email: signUpEmail,
       password: signUpPassword,
     };
-    Axios.post("http://localhost:5000/signup", registerUser)
+    Axios.post("/signup", registerUser)
       .then((res) => {
         console.log(res.data);
         history.push("/login");
