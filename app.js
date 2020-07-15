@@ -1,7 +1,5 @@
 const express = require("express");
-require("dotenv").config();
 const config = require("./config/config");
-require("./database/databaseConn");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const book = require("./router/book");
@@ -14,14 +12,11 @@ const app = express();
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
-  // import env file
-  require("dotenv").config();
-  config;
   app.disable("x-powered-by");
   app.use(compression());
   app.use(morgan("common"));
   // Set static folder
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(`${__dirname}/client/build/index.html`));
