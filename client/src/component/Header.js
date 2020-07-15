@@ -16,8 +16,8 @@ const Header = () => {
               <span className="title-span2">Store</span>
             </h1>
             <p className="p-title">
-              This is a bookstore APP where you can easily upload your
-              favourites books !
+              This is a bookstore APP where you can easily upload your favourite
+              books !
             </p>
           </div>
         </div>

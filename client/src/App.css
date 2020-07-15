@@ -194,6 +194,8 @@ li a:hover {
   background-color: rgb(121, 29, 29);
   color: white;
   text-align: center;
+  position: fixed;
+  bottom: 0;
 }
 .footerDiv1 {
   margin-top: 15px;
@@ -236,3 +238,70 @@ li a:hover {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+@media screen and (max-width: 600px) {
+  .navH1 {
+    width: 30%;
+  }
+
+  .formDiv {
+    display: flex;
+    width: 100%;
+    margin: 80px auto;
+    height: 250px;
+  }
+
+  .title {
+    font-family: "Piedra", cursive;
+    font-size: 400%;
+  }
+  .p-title {
+    font-family: "Dancing Script", cursive;
+    color: rgb(10, 10, 22);
+    font-size: small;
+  }
+  ul {
+    float: left;
+    width: 75%;
+  }
+  ul a {
+    font-size: 10px;
+  }
+  li {
+    float: left;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  .container-fluid {
+    height: 150px;
+    padding: 300px;
+  }
+  .formtextfield {
+    margin: 0 auto;
+    width: 80%;
+  }
+  Form {
+    width: 100%;
+  }
+  .MuiOutlinedInput-input {
+    padding: 14px 120px !important;
+    margin: 0 auto;
+  }
+  .MuiButton-outlined {
+    width: 80% !important;
+  }
+  .btn-folder {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto !important;
+  }
+}
+/* @media screen and (max-width: 700px) {
+  .formDiv {
+    display: flex;
+    width: 100%;
+    margin: 120px auto;
+    height: 250px;
+  }
+} */

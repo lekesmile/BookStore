@@ -67,10 +67,11 @@ export default function Login() {
             }}
           />
         </div>
-
-        <Button variant="outlined" color="primary" type="submit" size="small">
-          login
-        </Button>
+        <div className="btn-folder">
+          <Button variant="outlined" color="primary" type="submit" size="small">
+            login
+          </Button>
+        </div>
       </form>
     </div>
   );

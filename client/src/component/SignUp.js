@@ -81,10 +81,11 @@ const SignUp = () => {
             }}
           />
         </div>
-
-        <Button variant="outlined" color="primary" type="submit" size="small">
-          signup
-        </Button>
+        <div className="btn-folder">
+          <Button variant="outlined" color="primary" type="submit" size="small">
+            signup
+          </Button>
+        </div>
       </form>
     </div>
   );
