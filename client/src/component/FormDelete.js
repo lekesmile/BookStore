@@ -31,7 +31,7 @@ const FormDelete = (props) => {
   };
 
   const deletefromDatabase = () => {
-    Axios.delete(`api/${props.match.params.id}`)
+    Axios.delete(`/api/${props.match.params.id}`)
       .then((res) => {
         console.log(props.match.params.id);
         history.push("/");
