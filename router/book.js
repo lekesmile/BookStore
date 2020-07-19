@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Book = require("../schema/Book");
+const verify = require("../middleware/authVerification");
 
 router.get("/", async (req, res) => {
   try {
@@ -45,7 +46,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verify.verifytoken, async (req, res) => {
   try {
     const findBook = await Book.findByIdAndDelete({ _id: req.params.id });
 

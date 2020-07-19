@@ -1,9 +1,9 @@
 const config = require("../config/config");
 const express = require("express");
-const router = express.Router();
 const User = require("../schema/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const router = express.Router();
 
 router.get("/user", async (req, res) => {
   try {

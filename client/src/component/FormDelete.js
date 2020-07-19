@@ -31,12 +31,15 @@ const FormDelete = (props) => {
   };
 
   const deletefromDatabase = () => {
-    Axios.delete(`/api/${props.match.params.id}`)
+    const userData = JSON.parse(localStorage.getItem("userDetails"));
+    let header = {
+      Authorization: JSON.parse(JSON.stringify(userData.authorization)),
+    };
+
+    Axios.delete(`/api/${props.match.params.id}`, { headers: header })
       .then((res) => {
         console.log(props.match.params.id);
         history.push("/");
-        // const del = books.filter((books) => id !== books.id);
-        // setBook(del);
       })
       .catch((e) => {
         console.log(e);

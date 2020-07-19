@@ -126,9 +126,11 @@ const Books = ({ book, deletefromDatabase }) => {
             ActionsComponent={TablePaginationActions}
           />
         </TableContainer>
-        <Link to={"/save/"} className="addButton">
-          Add Book
-        </Link>
+        <div style={{ display: "inlineblock" }}>
+          <Link to={"/save/"} className="addButton">
+            Add Book
+          </Link>
+        </div>
       </div>
     </React.Fragment>
   );
