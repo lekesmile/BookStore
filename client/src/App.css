@@ -241,6 +241,13 @@ li a:hover {
   display: inline-block;
 }
 
+/* .login-div {
+  color: "white";
+  width: "15%";
+  display: "flex";
+  float: "right";
+} */
+
 @media screen and (max-width: 600px) {
   .navH1 {
     width: 30%;
@@ -297,6 +304,12 @@ li a:hover {
     justify-content: center;
     width: 100%;
     margin: 0 auto !important;
+  }
+  .login-div {
+    color: "white";
+    /* width: "15%"; */
+    display: "flex";
+    float: "right";
   }
 }
 /* @media screen and (max-width: 700px) {

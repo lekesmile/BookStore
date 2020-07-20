@@ -52,9 +52,10 @@ const Nav = () => {
 
     return (
       <div
+        className="login-div"
         style={{
           color: "white",
-          width: "15%",
+          // width: "15%",
           display: "flex",
           float: "right",
         }}

@@ -20,7 +20,7 @@ const FormEdit = (props) => {
       setAuthor(res.data.author);
       setTitle(res.data.title);
       setSerialNo(res.data.serialNo);
-      setPublishedDate(res.data.setPublishedDate);
+      setPublishedDate(moment(res.data.setPublishedDate).format("YYYY-MM-DD"));
     });
   };
 
@@ -111,7 +111,7 @@ const FormEdit = (props) => {
             required={true}
             label="published date"
             type="date"
-            value={moment(PublishedDate).format("yyyy-MM-dd")}
+            value={PublishedDate}
             onChange={(e) => setPublishedDate(e.target.value)}
             InputLabelProps={{
               shrink: true,
