@@ -79,7 +79,7 @@ const FormEdit = (props) => {
   };
 
   return (
-    <div className="FormBook container">
+    <div className="FormBook ">
       <h3 className="FormBookH3">Edit Book</h3>
       {alert.show && <Alert type={alert.type} text={alert.text} />}
 
@@ -133,9 +133,9 @@ const FormEdit = (props) => {
             }}
           />
 
-          <div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <Button
-              style={{ margin: "10px 5px 0 0" }}
+              style={{ margin: "10px 5px 0 5px" }}
               variant="outlined"
               size="small"
               color="secondary"

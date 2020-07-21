@@ -176,12 +176,12 @@ li a:hover {
   background-color: #333;
 }
 
-.formDiv {
+/* .formDiv {
   display: flex;
   width: 50%;
   margin: 120px auto;
   height: 250px;
-}
+} */
 .formtextfield {
   margin: 5px 0;
 }
@@ -218,8 +218,11 @@ li a:hover {
 }
 
 .saveForm {
+  display: flex;
+  flex-direction: column;
   margin: 10px auto;
   min-height: 450px;
+  width: 100%;
 }
 .textCat {
   width: 60%;
@@ -232,7 +235,7 @@ li a:hover {
 }
 .MuiFormControl-root.MuiTextField-root {
   margin: 10px auto;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .addButton {
@@ -245,6 +248,7 @@ li a:hover {
   text-transform: uppercase;
   display: inline-block;
 }
+
 .MuiButton-label {
   padding: 10px !important;
 }
@@ -252,12 +256,21 @@ li a:hover {
   padding: 14px 120px !important;
   margin: 0 auto;
 }
-/* .login-div {
-  color: "white";
-  width: "15%";
-  display: "flex";
-  float: "right";
-} */
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.MuiTextField-root {
+  width: 100%;
+}
+.MuiButton-outlined {
+  width: 100% !important;
+  justify-content: center;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
 
 @media screen and (max-width: 600px) {
   .navH1 {
@@ -302,12 +315,12 @@ li a:hover {
   }
   .formtextfield {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
   }
-  Form {
+  /* Form {
     width: 100%;
     margin: 0 auto;
-  }
+  } */
   .MuiOutlinedInput-input {
     padding: 14px 120px !important;
     margin: 0 auto;
@@ -322,8 +335,8 @@ li a:hover {
   .btn-folder {
     display: flex;
     justify-content: center;
-    width: 80%;
-    margin: 0 auto !important;
+    width: 100%;
+    margin: 30px auto !important;
   }
   .login-div {
     color: "white";
@@ -335,6 +348,9 @@ li a:hover {
     width: 100%;
   }
   form {
-    width: 80%;
+    width: 90%;
+  }
+  nav {
+    width: 100%;
   }
 }

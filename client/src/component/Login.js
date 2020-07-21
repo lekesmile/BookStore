@@ -29,7 +29,7 @@ export default function Login() {
   }
 
   return (
-    <div className="formDiv">
+    <div className="FormBook">
       <form onSubmit={handleSubmit}>
         <div className="formtextfield">
           <TextField
@@ -41,12 +41,8 @@ export default function Login() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            variant="outlined"
             margin="normal"
             size="small"
-            InputLabelProps={{
-              shrink: true,
-            }}
           />
         </div>
 
@@ -59,12 +55,8 @@ export default function Login() {
               setPassword(e.target.value);
             }}
             type="password"
-            variant="outlined"
             size="small"
             required={true}
-            InputLabelProps={{
-              shrink: true,
-            }}
           />
         </div>
         <div className="btn-folder">
