@@ -88,6 +88,9 @@ Form {
   width: 50%;
   margin: 0 auto;
 }
+form {
+  margin: 0 auto;
+}
 .FormBookH3 {
   text-align: center;
 }
@@ -242,7 +245,13 @@ li a:hover {
   text-transform: uppercase;
   display: inline-block;
 }
-
+.MuiButton-label {
+  padding: 10px !important;
+}
+.MuiOutlinedInput-input {
+  padding: 14px 120px !important;
+  margin: 0 auto;
+}
 /* .login-div {
   color: "white";
   width: "15%";
@@ -261,7 +270,11 @@ li a:hover {
     margin: 80px auto;
     height: 250px;
   }
-
+  .saveForm {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
   .title {
     font-family: "Piedra", cursive;
     font-size: 400%;
@@ -293,18 +306,23 @@ li a:hover {
   }
   Form {
     width: 100%;
+    margin: 0 auto;
   }
   .MuiOutlinedInput-input {
     padding: 14px 120px !important;
     margin: 0 auto;
   }
   .MuiButton-outlined {
-    width: 80% !important;
+    width: 100% !important;
+    justify-content: center;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
   }
   .btn-folder {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     margin: 0 auto !important;
   }
   .login-div {
@@ -313,12 +331,10 @@ li a:hover {
     display: "flex";
     float: "right";
   }
-}
-/* @media screen and (max-width: 700px) {
-  .formDiv {
-    display: flex;
+  .MuiTextField-root {
     width: 100%;
-    margin: 120px auto;
-    height: 250px;
   }
-} */
+  form {
+    width: 80%;
+  }
+}
