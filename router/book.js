@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", verify.verifytoken, async (req, res) => {
   let { author, title, serialNo, publicationDate } = req.body;
 
   try {
@@ -58,7 +58,7 @@ router.delete("/:id", verify.verifytoken, async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", verify.verifytoken, async (req, res) => {
   try {
     const updateBook = await Book.findByIdAndUpdate(
       { _id: req.params.id },

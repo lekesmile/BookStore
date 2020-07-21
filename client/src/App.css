@@ -8,6 +8,7 @@
 .header-image {
   width: 50%;
 }
+
 .bi-book-half {
   width: 40%;
   text-align: center;
@@ -43,6 +44,7 @@
 .title {
   font-family: "Piedra", cursive;
   font-size: 600%;
+  margin-left: -2%;
 }
 .p-title {
   font-family: "Dancing Script", cursive;

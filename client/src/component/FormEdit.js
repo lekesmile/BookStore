@@ -41,17 +41,32 @@ const FormEdit = (props) => {
   // Axios Post request
 
   const saveEditedBook = (e) => {
+    // prevent default form operation
     e.preventDefault();
-    Axios.put(`/api/${props.match.params.id}`, newbook)
-      .then((res) => {
-        console.log(res.data);
-        handleAlert({ type: "alert-success", text: "Book Added" });
-        setTimeout(history.push("/"), 70000);
-      })
-      .catch((e) => {
-        console.log(e);
-        handleAlert({ type: "alert-error", text: "Sorry, we cannot add book" });
-      });
+
+    try {
+      // Get token from localstorage
+      const userData = JSON.parse(localStorage.getItem("userDetails"));
+      let header = {
+        Authorization: JSON.parse(JSON.stringify(userData.authorization)),
+      };
+      // Making request to backend route
+      Axios.put(`/api/${props.match.params.id}`, newbook, { headers: header })
+        .then((res) => {
+          console.log(res.data);
+          handleAlert({ type: "alert-success", text: "Book Added" });
+          setTimeout(history.push("/"), 70000);
+        })
+        .catch((e) => {
+          console.log(e);
+          handleAlert({
+            type: "alert-error",
+            text: "Sorry, we cannot add book",
+          });
+        });
+    } catch (error) {
+      handleAlert({ type: "alert-error", text: "Sorry, login to edit book" });
+    }
   };
 
   //Handle Alert
