@@ -95,6 +95,7 @@ const FormDelete = (props) => {
               Cancel
             </Button>
             <Button
+              style={{ margin: 10 }}
               variant="outlined"
               color="secondary"
               onClick={() => {

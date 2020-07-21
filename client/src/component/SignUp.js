@@ -29,7 +29,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className="formDiv">
+    <div className="FormBook">
       <form onSubmit={handleSubmit}>
         <div className="formtextfield">
           <TextField
@@ -39,10 +39,6 @@ const SignUp = () => {
             required={true}
             value={signUpname}
             onChange={(e) => setsignUpname(e.target.value)}
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true,
-            }}
           />
         </div>
 
@@ -57,10 +53,6 @@ const SignUp = () => {
             onChange={(e) => {
               setsignUpEmail(e.target.value);
             }}
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true,
-            }}
           />
         </div>
 
@@ -74,10 +66,6 @@ const SignUp = () => {
             value={signUpPassword}
             onChange={(e) => {
               setsignUpPassword(e.target.value);
-            }}
-            variant="outlined"
-            InputLabelProps={{
-              shrink: true,
             }}
           />
         </div>

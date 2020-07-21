@@ -46,22 +46,36 @@ const Nav = () => {
     );
   };
 
-  const renderLoginUser = () => {
+  const renderLogged = () => {
     let user = JSON.stringify(data.user.name);
     let userInfo = user.substring(1).slice(0, -1);
-
     return (
-      <div
-        className="login-div"
-        style={{
-          color: "white",
-          // width: "15%",
-          display: "flex",
-          float: "right",
-        }}
-      >
-        <p> {` ${userInfo.toUpperCase()}`}</p>
-        <FaUserCircle onClick={handlelogout} style={{ margin: 20 }} />
+      <div>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          {" "}
+          <Link to="/about">About</Link>
+        </li>
+        <li style={{ float: "right" }}>
+          {" "}
+          <div
+            className="login-div"
+            style={{
+              color: "white",
+              // width: "15%",
+              display: "flex",
+              float: "right",
+            }}
+          >
+            <p style={{ fontSize: 14, paddingTop: 6 }}>
+              {" "}
+              {` ${userInfo.toUpperCase()}`}
+            </p>
+            <FaUserCircle onClick={handlelogout} style={{ margin: 20 }} />
+          </div>
+        </li>
       </div>
     );
   };
@@ -82,15 +96,7 @@ const Nav = () => {
         </div>
 
         <ul className="nav-ul">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            {" "}
-            <Link to="/about">About</Link>
-          </li>
-
-          {login === false ? renderLoginSignUp() : renderLoginUser()}
+          {login === false ? renderLoginSignUp() : renderLogged()}
         </ul>
       </nav>
     </div>
