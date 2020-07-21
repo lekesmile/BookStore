@@ -30,17 +30,34 @@ const FormSaveBook = () => {
   // Axios Post request
 
   const SaveBook = (e) => {
+    // prevent default form operation
+
     e.preventDefault();
-    Axios.post("/api", newbook)
-      .then((res) => {
-        console.log(res.data);
-        handleAlert({ type: "alert-success", text: "Book Added" });
-        setTimeout(history.push("/"), 90000);
-      })
-      .catch((e) => {
-        console.log(e);
-        handleAlert({ type: "alert-error", text: "Sorry, we cannot add book" });
-      });
+
+    // Get token from localstorage
+    try {
+      const userData = JSON.parse(localStorage.getItem("userDetails"));
+      let header = {
+        Authorization: JSON.parse(JSON.stringify(userData.authorization)),
+      };
+
+      // Making request to backend route
+      Axios.post("/api", newbook, { headers: header })
+        .then((res) => {
+          console.log(res.data);
+          handleAlert({ type: "alert-success", text: "Book Added" });
+          setTimeout(history.push("/"), 90000);
+        })
+        .catch((e) => {
+          console.log(e);
+          handleAlert({
+            type: "alert-error",
+            text: "Sorry, we cannot add book",
+          });
+        });
+    } catch (error) {
+      handleAlert({ type: "alert-error", text: "Login/Signup to post a Book" });
+    }
   };
 
   //Handle Alert

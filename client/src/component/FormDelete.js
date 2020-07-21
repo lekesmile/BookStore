@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -6,6 +6,7 @@ import Fade from "@material-ui/core/Fade";
 import Button from "@material-ui/core/Button";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
+import Alert from "./Alert";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,29 +26,48 @@ const FormDelete = (props) => {
   let history = useHistory();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [alert, setAlert] = useState({ show: "false" });
 
   const handleClose = () => {
     setOpen(false);
   };
 
   const deletefromDatabase = () => {
-    const userData = JSON.parse(localStorage.getItem("userDetails"));
-    let header = {
-      Authorization: JSON.parse(JSON.stringify(userData.authorization)),
-    };
-
-    Axios.delete(`/api/${props.match.params.id}`, { headers: header })
-      .then((res) => {
-        console.log(props.match.params.id);
-        history.push("/");
-      })
-      .catch((e) => {
-        console.log(e);
+    try {
+      // Get token from localstorage
+      const userData = JSON.parse(localStorage.getItem("userDetails"));
+      let header = {
+        Authorization: JSON.parse(JSON.stringify(userData.authorization)),
+      };
+      // Making request to backend route
+      Axios.delete(`/api/${props.match.params.id}`, { headers: header })
+        .then((res) => {
+          console.log(props.match.params.id);
+          history.push("/");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (error) {
+      handleAlert({
+        type: "alert-error",
+        text: "Login/Signup to delete a Book",
       });
+    }
+  };
+
+  //Handle Alert
+
+  const handleAlert = ({ type, text }) => {
+    setAlert({ show: true, type, text });
+    setTimeout(() => {
+      setAlert({ show: false });
+    }, 8000);
   };
 
   return (
     <div>
+      {alert.show && <Alert type={alert.type} text={alert.text} />}
       <Modal
         className={classes.modal}
         open={open}
