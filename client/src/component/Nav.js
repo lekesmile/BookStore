@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GiBlackBook } from "react-icons/gi";
 import { FaUserCircle } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
+import { red } from "@material-ui/core/colors";
 
 let data = JSON.parse(localStorage.getItem("userDetails"));
 
@@ -31,16 +32,28 @@ const Nav = () => {
     window.location.reload();
   };
 
-  const renderLoginSignUp = () => {
+  const renderSignUp = () => {
     return (
       <div>
-        <li style={{ float: "right" }}>
+        <li
+          style={{
+            float: "right",
+            backgroundColor: "rgb(121, 29, 29)",
+            borderRadius: "15px 30px",
+            marginTop: 10,
+            "&:hover": {
+              background: "#40a9ff",
+            },
+          }}
+        >
           {" "}
-          <Link to="/login">login</Link>
+          <Link style={{ padding: "11px 10px" }} to="/signup">
+            signup
+          </Link>
         </li>
         <li style={{ float: "right" }}>
           {" "}
-          <Link to="/signup">signup</Link>
+          <Link to="/login">login</Link>
         </li>
       </div>
     );
@@ -71,7 +84,7 @@ const Nav = () => {
           >
             <p style={{ fontSize: 14, paddingTop: 6 }}>
               {" "}
-              {` ${userInfo.toUpperCase()}`}
+              {` ${capitalizeFirstLetter(userInfo)}`}
             </p>
             <FaUserCircle onClick={handlelogout} style={{ margin: 20 }} />
           </div>
@@ -80,23 +93,29 @@ const Nav = () => {
     );
   };
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <div>
       <nav>
         <div className="navH1">
           {" "}
-          <GiBlackBook
-            style={{
-              width: 100,
-              height: 50,
-              color: "white",
-              margin: " 0 auto",
-            }}
-          />
+          <Link to="/">
+            <GiBlackBook
+              style={{
+                width: 100,
+                height: 50,
+                color: "white",
+                margin: " 0 auto",
+              }}
+            />
+          </Link>
         </div>
 
         <ul className="nav-ul">
-          {login === false ? renderLoginSignUp() : renderLogged()}
+          {login === false ? renderSignUp() : renderLogged()}
         </ul>
       </nav>
     </div>
