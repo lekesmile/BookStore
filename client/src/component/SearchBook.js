@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "@material-ui/core/FormControl";
 import { Input } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
 
 const SearchBook = ({ search, chandleChange }) => {
   return (
@@ -13,16 +12,19 @@ const SearchBook = ({ search, chandleChange }) => {
         justifyContent: "space-between",
       }}
     >
-      <h3>Books Avaliable</h3>
-      <div style={{ flexDirection: "row" }}>
+      <div>
+        <h3>Books Avaliable</h3>
+      </div>
+      <div style={{ marginTop: 10 }}>
         <Form>
-          <SearchIcon />
           <Input
             type="type"
             placeholder="Search ....by author"
             value={search}
             onChange={chandleChange}
-          ></Input>
+          >
+            {" "}
+          </Input>
         </Form>
       </div>
     </div>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { GiBlackBook } from "react-icons/gi";
 import { FaUserCircle } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import { red } from "@material-ui/core/colors";
 
 let data = JSON.parse(localStorage.getItem("userDetails"));
 
@@ -41,13 +40,15 @@ const Nav = () => {
             backgroundColor: "rgb(121, 29, 29)",
             borderRadius: "15px 30px",
             marginTop: 10,
-            "&:hover": {
-              background: "#40a9ff",
-            },
+            marginRight: 15,
           }}
         >
           {" "}
-          <Link style={{ padding: "11px 10px" }} to="/signup">
+          <Link
+            className="sign-up-hover"
+            style={{ padding: "11px 10px" }}
+            to="/signup"
+          >
             signup
           </Link>
         </li>
@@ -77,7 +78,6 @@ const Nav = () => {
             className="login-div"
             style={{
               color: "white",
-              // width: "15%",
               display: "flex",
               float: "right",
             }}
@@ -109,6 +109,7 @@ const Nav = () => {
                 height: 50,
                 color: "white",
                 margin: " 0 auto",
+                marginTop: "8px",
               }}
             />
           </Link>

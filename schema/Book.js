@@ -30,7 +30,7 @@ const BookSchema = new Schema({
     default: Date.now,
   },
 
-  //    userInfo: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  userInfo: { type: Schema.Types.ObjectId, ref: "User", required: true },
 });
 
 const Book = mongoose.model("Book", BookSchema);
