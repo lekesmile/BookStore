@@ -160,7 +160,7 @@ ul {
 
 li {
   float: left;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 li a {
@@ -306,7 +306,7 @@ form {
   }
   li {
     float: left;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 16px;
   }
   .container-fluid {
