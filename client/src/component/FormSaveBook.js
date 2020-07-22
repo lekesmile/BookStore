@@ -17,16 +17,6 @@ const FormSaveBook = () => {
 
   // Request Object to post
 
-  // let data = JSON.parse(localStorage.getItem("userDetails"));
-
-  const newbook = {
-    author: author,
-    title: title,
-    serialNo: serialNo,
-    publicationDate: PublishedDate,
-    // userInfo: JSON.parse(JSON.stringify(data.user._id)),
-  };
-
   // Axios Post request
 
   const SaveBook = (e) => {
@@ -37,16 +27,29 @@ const FormSaveBook = () => {
     // Get token from localstorage
     try {
       const userData = JSON.parse(localStorage.getItem("userDetails"));
+
       let header = {
         Authorization: JSON.parse(JSON.stringify(userData.authorization)),
+      };
+
+      const newbook = {
+        author: author,
+        title: title,
+        serialNo: serialNo,
+        publicationDate: PublishedDate,
+        userInfo: JSON.parse(JSON.stringify(userData.user._id)),
       };
 
       // Making request to backend route
       Axios.post("/api", newbook, { headers: header })
         .then((res) => {
           console.log(res.data);
-          handleAlert({ type: "alert-success", text: "Book Added" });
-          setTimeout(history.push("/"), 90000);
+
+          setTimeout(
+            handleAlert({ type: "alert-success", text: "Book Added" }),
+            30000
+          );
+          history.push("/");
         })
         .catch((e) => {
           console.log(e);
@@ -56,7 +59,10 @@ const FormSaveBook = () => {
           });
         });
     } catch (error) {
-      handleAlert({ type: "alert-error", text: "Login/Signup to post a Book" });
+      handleAlert({
+        type: "alert-error",
+        text: "Plsease, login to add a Book",
+      });
     }
   };
 

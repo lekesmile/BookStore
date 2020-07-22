@@ -28,16 +28,6 @@ const FormEdit = (props) => {
     editFormFillContent();
   }, []);
 
-  // Request Object to post
-  // let data = JSON.parse(localStorage.getItem("userDetails"));
-  const newbook = {
-    author: author,
-    title: title,
-    serialNo: serialNo,
-    publicationDate: PublishedDate,
-    // userInfo: JSON.parse(JSON.stringify(data.user._id)),
-  };
-
   // Axios Post request
 
   const saveEditedBook = (e) => {
@@ -50,6 +40,17 @@ const FormEdit = (props) => {
       let header = {
         Authorization: JSON.parse(JSON.stringify(userData.authorization)),
       };
+
+      // Request Object to post
+
+      const newbook = {
+        author: author,
+        title: title,
+        serialNo: serialNo,
+        publicationDate: PublishedDate,
+        userInfo: JSON.parse(JSON.stringify(userData.user._id)),
+      };
+
       // Making request to backend route
       Axios.put(`/api/${props.match.params.id}`, newbook, { headers: header })
         .then((res) => {
