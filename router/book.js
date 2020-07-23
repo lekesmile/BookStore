@@ -75,8 +75,7 @@ router.put("/:id", verify.verifytoken, async (req, res) => {
     if (!book) return res.status(404).json({ msg: "Book not found" });
 
     // Making sure user post the book
-    console.log(book.userInfo);
-    console.log(req.user.id);
+
     if (book.userInfo.toString() !== req.user.id)
       return res.status(401).json({ msg: "Not authorized" });
 

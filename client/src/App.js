@@ -11,6 +11,7 @@ import Footer from "./component/Footer";
 import FormEdit from "./component/FormEdit";
 import FormSaveBook from "./component/FormSaveBook";
 import FormDelete from "./component/FormDelete";
+import Notfound from "./component/Notfound";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/edit/:id" component={FormEdit} />
           <Route path="/save/" component={FormSaveBook} />
           <Route path="/delete/:id" component={FormDelete} />
+          <Route component={Notfound} />
         </Switch>
 
         <Footer />
