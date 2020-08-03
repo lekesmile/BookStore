@@ -12,6 +12,7 @@ import FormEdit from "./component/FormEdit";
 import FormSaveBook from "./component/FormSaveBook";
 import FormDelete from "./component/FormDelete";
 import Notfound from "./component/Notfound";
+import ForgotPassword from "./component/ForgotPassword";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/edit/:id" component={FormEdit} />
           <Route path="/save/" component={FormSaveBook} />
           <Route path="/delete/:id" component={FormDelete} />
+          <Route path="/passwordReset" component={ForgotPassword} />
           <Route component={Notfound} />
         </Switch>
 
