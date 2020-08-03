@@ -8,6 +8,7 @@ const user = require("./router/user");
 const path = require("path");
 const morgan = require("morgan");
 const compression = require("compression");
+const secrets = require("./config/config");
 const app = express();
 
 //Middleware
@@ -33,6 +34,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || secrets.PORT;
+console.log(secrets.PORT)
 
 app.listen(port, (req, res) => {
   console.log(`Server is running on port ${port}`);
